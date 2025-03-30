@@ -6,6 +6,7 @@ import lit from "@astrojs/lit";
 import purgecss from "astro-purgecss";
 import sitemap from "@astrojs/sitemap";
 import solidJs from "@astrojs/solid-js";
+import AstroPWA from "@vite-pwa/astro";
 
 export default defineConfig({
 	devToolbar: { enabled: false },
@@ -55,6 +56,52 @@ export default defineConfig({
 		lit(),
 		solidJs(),
 		sitemap(),
+
+		AstroPWA({
+			mode: "production",
+			base: "/",
+			scope: "/",
+			selfDestroying: true,
+			includeAssets: ["favicon.svg"],
+			registerType: "autoUpdate",
+
+			manifest: {
+				id: "/",
+				description: "Base for WebsLab projects",
+				display_override: ["fullscreen", "minimal-ui"],
+				display: "standalone",
+				name: "WebsLab Base",
+				short_name: "Base",
+
+				background_color: "#ffffff",
+				theme_color: "#613583",
+
+				icons: [
+					{
+						src: "/favicon.svg",
+						sizes: "512x512",
+						type: "image/svg+xml",
+					},
+				],
+			},
+
+			pwaAssets: { config: true },
+
+			workbox: {
+				navigateFallback: "/",
+				globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
+			},
+
+			devOptions: {
+				enabled: true,
+				navigateFallbackAllowlist: [/^\/$/],
+			},
+
+			experimental: {
+				directoryAndTrailingSlashHandler: true,
+			},
+		}),
+
 		purgecss({
 			keyframes: false,
 

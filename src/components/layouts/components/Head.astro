@@ -51,3 +51,6 @@ const {
 
 <script src="$lib/analytic.ts"></script>
 <script is:inline src="/js/theming.js" async></script>
+
+<script src="$lib/pwa.ts"></script>
+{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }

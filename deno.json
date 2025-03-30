@@ -16,6 +16,10 @@
 
 		"@webslab/shared": "npm:@webslab/shared@^0.3.0",
 
+		"@vite-pwa/assets-generator": "npm:@vite-pwa/assets-generator@^1.0.0",
+		"@vite-pwa/astro": "npm:@vite-pwa/astro@^1.0.0",
+		"workbox-window": "npm:workbox-window@^7.3.0",
+
 		"@astrojs/lit": "npm:@astrojs/lit@^4.3.0",
 		"@astrojs/sitemap": "npm:@astrojs/sitemap@^3.2.1",
 		"@astrojs/solid-js": "npm:@astrojs/solid-js@^5.0.4",

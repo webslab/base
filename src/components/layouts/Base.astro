@@ -6,6 +6,7 @@ import Back from './components/Back.astro'
 import Navbar from './components/Navbar.astro'
 import Footer from './components/Footer.astro'
 import ModalLogin from './components/ModalLogin.astro'
+import ReloadPrompt from './components/ReloadPrompt.astro';
 
 interface Props {
   auth?: boolean;
@@ -64,6 +65,8 @@ const { back, auth = true, admin = true, title, description } = Astro.props;
         </button>
       </div>
     </wl-security>
+
+    <ReloadPrompt />
 
     <div class="mt-5">
       <Footer />
